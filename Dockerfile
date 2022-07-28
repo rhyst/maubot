@@ -39,7 +39,7 @@ RUN apk add --no-cache \
         py3-magic \
         py3-feedparser \
         py3-dateutil \
-        py3-lxml
+        py3-lxml 
 #        py3-gitlab
 #        py3-semver@edge
 # TODO remove pillow, magic, feedparser, lxml, gitlab and semver when maubot supports installing dependencies
@@ -49,7 +49,7 @@ COPY optional-requirements.txt /opt/maubot/optional-requirements.txt
 WORKDIR /opt/maubot
 RUN apk add --virtual .build-deps python3-dev build-base git \
     && pip3 install -r requirements.txt -r optional-requirements.txt \
-        dateparser langdetect python-gitlab pyquery cchardet semver tzlocal cssselect \
+        dateparser langdetect python-gitlab pyquery cchardet semver tzlocal cssselect pyppeteer \
     && apk del .build-deps
 # TODO also remove dateparser, langdetect and pyquery when maubot supports installing dependencies
 
